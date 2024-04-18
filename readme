@@ -1,1 +1,6 @@
 23537_23632
+
+
+Sondagem Linear = é um hash q cria 1 vetor e insere valoores onde não tiver valor resumidamente (pag 48 da apostila) tipo se tiver um vetor [0, ,1, ] elese vai inserir o valor no primeiro espaço vazio, supondo um valor x ficaria:
+[0,x,1, ], tem que verificar quando enxer para não acontecer colisões
+

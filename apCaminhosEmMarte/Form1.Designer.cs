@@ -139,6 +139,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(40, 30);
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnRemover
             // 
@@ -148,6 +149,7 @@
             this.btnRemover.TabIndex = 8;
             this.btnRemover.Text = "-";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnInserir
             // 
@@ -285,7 +287,7 @@
             this.tpCaminhos.Location = new System.Drawing.Point(4, 22);
             this.tpCaminhos.Name = "tpCaminhos";
             this.tpCaminhos.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCaminhos.Size = new System.Drawing.Size(688, 412);
+            this.tpCaminhos.Size = new System.Drawing.Size(844, 555);
             this.tpCaminhos.TabIndex = 1;
             this.tpCaminhos.Text = "Caminhos";
             this.tpCaminhos.UseVisualStyleBackColor = true;
@@ -303,7 +305,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmCaminhos";
             this.Text = "Caminhos em Marte - Ra1 - Ra2";
-  
             this.tabControl1.ResumeLayout(false);
             this.tpCidades.ResumeLayout(false);
             this.tpCidades.PerformLayout();

@@ -9,6 +9,21 @@ namespace apCaminhosEmMarte
     public class HashQuadratico<Tipo> : ITabelaDeHash<Tipo>
          where Tipo : IRegistro<Tipo>
     {
+
+        private int size = 1007;
+        Tipo[] dados;
+
+        public HashQuadratico()
+        {
+            dados = new Tipo[size];
+        }
+
+        private int Hash(Tipo chave)
+        {
+            return 0;
+        }
+
+
         List<Tipo> ITabelaDeHash<Tipo>.Conteudo()
         {
             throw new NotImplementedException();

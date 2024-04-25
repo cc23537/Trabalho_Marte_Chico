@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace apCaminhosEmMarte
 {
     public class HashDuplo<Tipo> : ITabelaDeHash<Tipo>
+
         where Tipo : IRegistro<Tipo>
     {
         List<Tipo> ITabelaDeHash<Tipo>.Conteudo()

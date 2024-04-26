@@ -52,22 +52,35 @@ namespace apCaminhosEmMarte
 
         List<Tipo> ITabelaDeHash<Tipo>.Conteudo()
         {
-            throw new NotImplementedException();
+            List<Tipo> saida = new List<Tipo>();
+            for (int i = 0; i < dados.Length; i++)
+                if (dados[i].Count > 0)
+                {
+                    string linha = $"{i,5} : ";
+                    foreach (Tipo item in dados[i])
+                        saida.Add(item);
+                }
+            return saida;
         }
 
-        bool ITabelaDeHash<Tipo>.Existe(Tipo item, out int onde)
+        public bool Existe(Tipo item, out int onde)
         {
             onde = Hash(item.Chave);
-            if (dados[onde]  item){
+            if (dados[onde].Equals(item)){
+                return true;
             }
+
             return false;
         }
 
-        
-
         bool ITabelaDeHash<Tipo>.Remover(Tipo item)
         {
-            throw new NotImplementedException();
+            int onde = 0;
+            if (!Existe(item, out onde))
+                return false;
+
+            //dados[onde] = default(Tipo);
+            return true;
         }
     }
 }

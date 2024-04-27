@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|solutionrelative:buckethash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\itabeladehash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|solutionrelative:itabeladehash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\iregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|solutionrelative:iregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\itabeladehash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|solutionrelative:itabeladehash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BFF72FC-D969-44C6-9D55-90B066379B1F}|apCaminhosEmMarte.csproj|C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -76,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ITabelaDeHash.cs",
               "DocumentMoniker": "C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\ITabelaDeHash.cs",
               "RelativeDocumentMoniker": "ITabelaDeHash.cs",
@@ -89,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "IRegistro.cs",
               "DocumentMoniker": "C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\IRegistro.cs",
               "RelativeDocumentMoniker": "IRegistro.cs",
@@ -108,7 +108,7 @@
               "RelativeDocumentMoniker": "HashQuadratico.cs",
               "ToolTip": "C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\HashQuadratico.cs",
               "RelativeToolTip": "HashQuadratico.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAwwFIAAAAYAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwDoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T19:12:23.939Z",
               "EditorCaption": ""
@@ -121,7 +121,7 @@
               "RelativeDocumentMoniker": "BucketHash.cs",
               "ToolTip": "C:\\Marte-c#\\Trabalho_Marte_Chico\\apCaminhosEmMarte\\BucketHash.cs",
               "RelativeToolTip": "BucketHash.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAgwCsAAAABAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAowD4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T19:28:56.031Z",
               "EditorCaption": ""

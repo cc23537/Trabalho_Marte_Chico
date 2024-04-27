@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,11 @@ namespace apCaminhosEmMarte
     {
 
         private int size = 1007;
-        Tipo[] dados;
+        ArrayList[] dados;
 
         public HashQuadratico()
         {
-            dados = new Tipo[size];
+            dados = new ArrayList[size];
         }
 
         private int Hash(string chave)
@@ -39,7 +40,7 @@ namespace apCaminhosEmMarte
                     valorHash = valorHash - dados.Length;
                 }
 
-                if (dados[valorHash] != null){
+                if (dados[valorHash].Count > 0){
                     coli++;
                     valorHash = valorHash + coli * coli;
                 }else{
@@ -47,7 +48,7 @@ namespace apCaminhosEmMarte
                 }
             }
 
-            dados[valorHash] = item;
+            dados[valorHash].Add(item);
         }
 
         List<Tipo> ITabelaDeHash<Tipo>.Conteudo()
@@ -66,11 +67,7 @@ namespace apCaminhosEmMarte
         public bool Existe(Tipo item, out int onde)
         {
             onde = Hash(item.Chave);
-            if (dados[onde].Equals(item)){
-                return true;
-            }
-
-            return false;
+            return dados[onde].Contains(item);
         }
 
         bool ITabelaDeHash<Tipo>.Remover(Tipo item)
@@ -79,7 +76,7 @@ namespace apCaminhosEmMarte
             if (!Existe(item, out onde))
                 return false;
 
-            //dados[onde] = default(Tipo);
+            dados[onde].Remove(item);
             return true;
         }
     }

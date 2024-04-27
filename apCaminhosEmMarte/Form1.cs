@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,7 @@ namespace apCaminhosEmMarte
         {
             InitializeComponent();
         }
-
+         
         ITabelaDeHash<Cidade> tabela;
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -84,6 +85,17 @@ namespace apCaminhosEmMarte
         {
            
 
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            lsbCidades.Items.Clear();  // limpa o listBox
+            var asCidades = tabela.Conteudo();
+
+            for (int i = 0; i < 10; i++)
+            {
+                lsbCidades.Items.Add(asCidades[i]);
+            }
         }
     }
 }

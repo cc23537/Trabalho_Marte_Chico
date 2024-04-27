@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace apCaminhosEmMarte
         public HashQuadratico()
         {
             dados = new ArrayList[size];
+            for (int i = 0; i < size; i++)
+            {
+                // coloca em cada posição do vetor, um arrayList vazio
+                dados[i] = new ArrayList(1);
+            }
         }
 
         private int Hash(string chave)

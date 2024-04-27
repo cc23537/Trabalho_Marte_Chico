@@ -130,6 +130,7 @@
             this.btnListar.Size = new System.Drawing.Size(40, 30);
             this.btnListar.TabIndex = 10;
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // btnBuscar
             // 

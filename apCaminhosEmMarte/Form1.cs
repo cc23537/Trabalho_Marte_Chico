@@ -19,7 +19,7 @@ namespace apCaminhosEmMarte
         {
             InitializeComponent();
         }
-         
+
         ITabelaDeHash<Cidade> tabela;
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -31,31 +31,28 @@ namespace apCaminhosEmMarte
 
         private void RemoverCidadeDoArquivo(string nomeCidade)
         {
-            
+
             if (dlgAbrir.FileName != null && dlgAbrir.FileName != "")
             {
                 string[] linhas = File.ReadAllLines(dlgAbrir.FileName);
                 using (StreamWriter writer = new StreamWriter(dlgAbrir.FileName))
                 {
-                        
+
                     foreach (string linha in linhas)
                     {
-                            
+
                         string[] campos = linha.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                          
+
                         if (campos[0].Trim() != nomeCidade)
-                        {     
-                             writer.WriteLine(linha);
+                        {
+                            writer.WriteLine(linha);
                         }
                     }
                 }
             }
-            
+
         }
-
-
-
 
         private void btnLerArquivo_Click(object sender, EventArgs e)
         {
@@ -88,7 +85,7 @@ namespace apCaminhosEmMarte
             }
         }
 
-      
+
 
         private void FrmCaminhos_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -120,7 +117,6 @@ namespace apCaminhosEmMarte
 
                     InserirCidadeNoArquivo(novaCidade);
 
-                    // Atualizar a interface, se necessário
                     lsbCidades.Items.Add(novaCidade);
                 }
                 else
@@ -151,22 +147,54 @@ namespace apCaminhosEmMarte
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-           
+            lsbCidades.Items.Clear();
+            string nomeCidade = txtCidade.Text;
+            string x = udX.Text;
+            string y = udY.Text;
 
+            Cidade cid = new Cidade();
+            cid.NomeCidade = nomeCidade;
+            cid.X = double.Parse(x);
+            cid.Y = double.Parse(y);
+            if (dlgAbrir.FileName != null && dlgAbrir.FileName != "")
+            {
+
+                   StreamReader arquivo = new StreamReader(dlgAbrir.FileName);
+
+                    while (!arquivo.EndOfStream)
+                    {
+                        Cidade umaCidade = new Cidade();
+                        umaCidade.LerRegistro(arquivo);
+                        Console.WriteLine(cid);
+                        Console.WriteLine(umaCidade);
+                        Console.WriteLine(umaCidade.X == cid.X);
+                        Console.WriteLine(umaCidade.Y == cid.Y);
+                        Console.WriteLine(umaCidade.NomeCidade == cid.NomeCidade);
+                        Console.WriteLine(umaCidade.Equals(cid));
+                        if (cid.X == umaCidade.X && cid.Y == umaCidade.Y && cid.NomeCidade == umaCidade.NomeCidade)
+                        {
+                            lsbCidades.Items.Add(cid);
+                            break;
+                        }
+                    }
+            }
         }
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            
+            lsbCidades.Items.Clear();
+            var asCidades = tabela.Conteudo();
+            foreach (Cidade cid in asCidades)
+                lsbCidades.Items.Add(cid);
+
         }
         private void InserirCidadeNoArquivo(Cidade cidade)
         {
             if (dlgAbrir.FileName != null && dlgAbrir.FileName != "")
             {
-                using (StreamWriter writer = File.AppendText(dlgAbrir.FileName))
-                {
-                    cidade.GravarDados(writer);
-                }
+                StreamWriter arquivo = new StreamWriter(dlgAbrir.FileName, true, Encoding.ASCII);
+                cidade.GravarDados(arquivo);
+
             }
         }
 
@@ -174,5 +202,5 @@ namespace apCaminhosEmMarte
     }
 
 
-    
+
 }

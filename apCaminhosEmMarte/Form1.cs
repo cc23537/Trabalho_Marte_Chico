@@ -192,9 +192,13 @@ namespace apCaminhosEmMarte
         {
             if (dlgAbrir.FileName != null && dlgAbrir.FileName != "")
             {
-                StreamWriter arquivo = new StreamWriter(dlgAbrir.FileName, true, Encoding.ASCII);
-                cidade.GravarDados(arquivo);
 
+                using (StreamWriter arquivo = new StreamWriter(dlgAbrir.FileName, true, Encoding.ASCII))
+                {
+                    cidade.GravarDados(arquivo);
+                }
+                //StreamWriter arquivo = new StreamWriter(dlgAbrir.FileName, true, Encoding.ASCII);
+                //cidade.GravarDados(arquivo);
             }
         }
 

@@ -21,11 +21,20 @@ namespace apCaminhosEmMarte
             InitializeComponent();
 
             
-            
-            SalvarPontoNaImagem(100, 100);
-            pbMapa.Image = Image.FromFile("Mapa_Marte_sem_rotas.jpg");
+
+
+            SalvarPontoNaImagem(1200, 1000);
+            pbMapa.Image = Image.FromFile(arquivo);
             Console.WriteLine(pbMapa.Image);
         }
+
+
+
+        string pasta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
+        static string p1 = Directory.GetCurrentDirectory();
+        static string p2 = Directory.GetParent(p1).FullName;
+        static string p3 = Directory.GetParent(p2).FullName;
+        string arquivo = Path.Combine(p3, "Mapa Marte sem rotas.jpg");
 
         ITabelaDeHash<Cidade> tabela;
         private PointF currentPosition;
@@ -245,7 +254,7 @@ namespace apCaminhosEmMarte
         {
             try
             {
-                string caminhoOriginal = "Mapa_Marte_sem_rotas.jpg";
+                string caminhoOriginal = arquivo;
                 string caminhoTemporario = "imagem_temporaria.jpg";
 
                 // Verifica se o arquivo original existe
@@ -266,7 +275,7 @@ namespace apCaminhosEmMarte
                         {
                             using (SolidBrush brush = new SolidBrush(Color.Red))
                             {
-                                g.FillEllipse(brush, x - 1, y - 1, 3, 3); // O ponto será desenhado com raio 1
+                                g.FillEllipse(brush, x - 1, y - 1, 200, 200); // O ponto será desenhado com raio 1
                             }
                         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -18,9 +19,17 @@ namespace apCaminhosEmMarte
         public FrmCaminhos()
         {
             InitializeComponent();
+
+            
+            
+            SalvarPontoNaImagem(100, 100);
+            pbMapa.Image = Image.FromFile("Mapa_Marte_sem_rotas.jpg");
+            Console.WriteLine(pbMapa.Image);
         }
 
         ITabelaDeHash<Cidade> tabela;
+        private PointF currentPosition;
+        private Point ponto = new Point(-1, -1);
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
@@ -118,6 +127,10 @@ namespace apCaminhosEmMarte
                     InserirCidadeNoArquivo(novaCidade);
 
                     lsbCidades.Items.Add(novaCidade);
+                    pbMapa.Invalidate(); // Redesenha o ImageBox para exibir o ponto
+                    SalvarPontoNaImagem(100, 100);
+
+
                 }
                 else
                 {
@@ -159,24 +172,24 @@ namespace apCaminhosEmMarte
             if (dlgAbrir.FileName != null && dlgAbrir.FileName != "")
             {
 
-                   StreamReader arquivo = new StreamReader(dlgAbrir.FileName);
+                StreamReader arquivo = new StreamReader(dlgAbrir.FileName);
 
-                    while (!arquivo.EndOfStream)
+                while (!arquivo.EndOfStream)
+                {
+                    Cidade umaCidade = new Cidade();
+                    umaCidade.LerRegistro(arquivo);
+                    Console.WriteLine(cid);
+                    Console.WriteLine(umaCidade);
+                    Console.WriteLine(umaCidade.X == cid.X);
+                    Console.WriteLine(umaCidade.Y == cid.Y);
+                    Console.WriteLine(umaCidade.NomeCidade == cid.NomeCidade);
+                    Console.WriteLine(umaCidade.Equals(cid));
+                    if (cid.X == umaCidade.X && cid.Y == umaCidade.Y && cid.NomeCidade == umaCidade.NomeCidade)
                     {
-                        Cidade umaCidade = new Cidade();
-                        umaCidade.LerRegistro(arquivo);
-                        Console.WriteLine(cid);
-                        Console.WriteLine(umaCidade);
-                        Console.WriteLine(umaCidade.X == cid.X);
-                        Console.WriteLine(umaCidade.Y == cid.Y);
-                        Console.WriteLine(umaCidade.NomeCidade == cid.NomeCidade);
-                        Console.WriteLine(umaCidade.Equals(cid));
-                        if (cid.X == umaCidade.X && cid.Y == umaCidade.Y && cid.NomeCidade == umaCidade.NomeCidade)
-                        {
-                            lsbCidades.Items.Add(cid);
-                            break;
-                        }
+                        lsbCidades.Items.Add(cid);
+                        break;
                     }
+                }
             }
         }
 
@@ -199,12 +212,79 @@ namespace apCaminhosEmMarte
                 }
                 //StreamWriter arquivo = new StreamWriter(dlgAbrir.FileName, true, Encoding.ASCII);
                 //cidade.GravarDados(arquivo);
+
             }
         }
 
 
+        private float DPI
+        {
+            get
+            {
+                using (var g = CreateGraphics())
+                    return g.DpiX;
+            }
+        }
+
+        private PointF PointToCartesian(Point point)
+        {
+            return new PointF(point.X, point.Y);
+        }
+
+        private float Pixel(float pixel)
+        {
+            return pixel * 25.4f / DPI;
+        }
+
+
+        private void pbMapa_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void SalvarPontoNaImagem(int x, int y)
+        {
+            try
+            {
+                string caminhoOriginal = "Mapa_Marte_sem_rotas.jpg";
+                string caminhoTemporario = "imagem_temporaria.jpg";
+
+                // Verifica se o arquivo original existe
+                if (!File.Exists(caminhoOriginal))
+                {
+                    MessageBox.Show("Arquivo original não encontrado.");
+                    return;
+                }
+
+                // Carrega a imagem original
+                using (Bitmap imagem = new Bitmap(caminhoOriginal))
+                {
+                    // Clona a imagem original para fazer edições
+                    using (Bitmap imagemEditada = new Bitmap(imagem))
+                    {
+                        // Desenha o ponto na imagem editada
+                        using (Graphics g = Graphics.FromImage(imagemEditada))
+                        {
+                            using (SolidBrush brush = new SolidBrush(Color.Red))
+                            {
+                                g.FillEllipse(brush, x - 1, y - 1, 3, 3); // O ponto será desenhado com raio 1
+                            }
+                        }
+
+                        // Salva a imagem editada em um arquivo temporário
+                        imagemEditada.Save(caminhoTemporario, ImageFormat.Jpeg);
+                    }
+                }
+
+                // Substitui o arquivo original pelo arquivo temporário
+                File.Delete(caminhoOriginal);
+                File.Move(caminhoTemporario, caminhoOriginal);
+
+                MessageBox.Show("Ponto salvo na imagem com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar o ponto na imagem: " + ex.Message);
+            }
+        }
     }
-
-
-
 }

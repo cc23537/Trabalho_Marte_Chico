@@ -100,7 +100,7 @@
             this.pbMapa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbMapa.Image = ((System.Drawing.Image)(resources.GetObject("pbMapa.Image")));
+            this.pbMapa.Image = global::apCaminhosEmMarte.Properties.Resources.Mapa_Marte_sem_rotas;
             this.pbMapa.Location = new System.Drawing.Point(292, 64);
             this.pbMapa.Name = "pbMapa";
             this.pbMapa.Size = new System.Drawing.Size(544, 483);

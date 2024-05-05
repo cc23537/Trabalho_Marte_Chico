@@ -57,6 +57,7 @@ namespace apCaminhosEmMarte
         {
             if (arquivo != null)  // está aberto para escrita
                 arquivo.WriteLine($"{NomeCidade}{X:F5}{Y:F5}");
+
         }
 
         public void LerRegistro(StreamReader arquivo)

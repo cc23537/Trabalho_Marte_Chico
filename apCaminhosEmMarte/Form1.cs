@@ -23,8 +23,6 @@ namespace apCaminhosEmMarte
 
         }
 
-
-
         string pasta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
         static string p1 = Directory.GetCurrentDirectory();
         static string p2 = Directory.GetParent(p1).FullName;
@@ -35,18 +33,13 @@ namespace apCaminhosEmMarte
         private PointF currentPosition;
         private Point ponto = new Point(-1, -1);
 
-
-
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
 
-
-
         private void RemoverCidadeDoArquivo(string nomeCidade)
         {
-
             if (dlgAbrir.FileName != null && dlgAbrir.FileName != "")
             {
                 string[] linhas = File.ReadAllLines(dlgAbrir.FileName);
@@ -66,7 +59,6 @@ namespace apCaminhosEmMarte
                     }
                 }
             }
-
         }
 
         private void btnLerArquivo_Click(object sender, EventArgs e)
@@ -137,10 +129,6 @@ namespace apCaminhosEmMarte
                     lsbCidades.Items.Add(novaCidade);
                     pbMapa.Invalidate(); // Redesenha o ImageBox para exibir o ponto
                     SalvarPontoNaImagem(cordX, cordY, nomeCidade);
-
-
-
-
                 }
                 else
                 {
@@ -220,9 +208,6 @@ namespace apCaminhosEmMarte
                 {
                     cidade.GravarDados(arquivo);
                 }
-                //StreamWriter arquivo = new StreamWriter(dlgAbrir.FileName, true, Encoding.ASCII);
-                //cidade.GravarDados(arquivo);
-
             }
         }
 

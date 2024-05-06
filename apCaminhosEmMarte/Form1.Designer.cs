@@ -69,7 +69,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(852, 581);
+            this.tabControl1.Size = new System.Drawing.Size(989, 581);
             this.tabControl1.TabIndex = 0;
             // 
             // tpCidades
@@ -90,7 +90,7 @@
             this.tpCidades.Location = new System.Drawing.Point(4, 22);
             this.tpCidades.Name = "tpCidades";
             this.tpCidades.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCidades.Size = new System.Drawing.Size(844, 555);
+            this.tpCidades.Size = new System.Drawing.Size(981, 555);
             this.tpCidades.TabIndex = 0;
             this.tpCidades.Text = "Cidades";
             this.tpCidades.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             this.pbMapa.Image = global::apCaminhosEmMarte.Properties.Resources.Mapa_Marte_sem_rotas;
             this.pbMapa.Location = new System.Drawing.Point(292, 64);
             this.pbMapa.Name = "pbMapa";
-            this.pbMapa.Size = new System.Drawing.Size(544, 483);
+            this.pbMapa.Size = new System.Drawing.Size(681, 483);
             this.pbMapa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMapa.TabIndex = 12;
             this.pbMapa.TabStop = false;
@@ -225,7 +225,7 @@
             this.groupBox1.Controls.Add(this.rbBucketHash);
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(838, 54);
+            this.groupBox1.Size = new System.Drawing.Size(975, 54);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Técnica de Hash desejada ";
@@ -233,7 +233,7 @@
             // btnLerArquivo
             // 
             this.btnLerArquivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLerArquivo.Location = new System.Drawing.Point(761, 16);
+            this.btnLerArquivo.Location = new System.Drawing.Point(898, 16);
             this.btnLerArquivo.Name = "btnLerArquivo";
             this.btnLerArquivo.Size = new System.Drawing.Size(71, 23);
             this.btnLerArquivo.TabIndex = 4;
@@ -302,7 +302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 583);
+            this.ClientSize = new System.Drawing.Size(992, 583);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmCaminhos";
             this.Text = "Caminhos em Marte - Ra1 - Ra2";

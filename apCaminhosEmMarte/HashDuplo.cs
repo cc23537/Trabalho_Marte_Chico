@@ -10,9 +10,6 @@ namespace apCaminhosEmMarte
     public class HashDuplo<Tipo> : ITabelaDeHash<Tipo>
 
         where Tipo : IRegistro<Tipo>
-
-       
-       
     {
 
         private const int SIZE = 131;
@@ -38,6 +35,7 @@ namespace apCaminhosEmMarte
                 tot += dados.Length;
             return (int)tot;
         }
+
         public List<Tipo> Conteudo()
         {
             List<Tipo> saida = new List<Tipo>();
@@ -65,7 +63,7 @@ namespace apCaminhosEmMarte
                 valorDeHash = 2*Hash(item.Chave);
             }
             if (!dados[valorDeHash].Contains(item))
-                dados[valorDeHash].Add(item);
+                dados[valorDeHash].Add(item);  
         }
 
         public bool Remover(Tipo item)

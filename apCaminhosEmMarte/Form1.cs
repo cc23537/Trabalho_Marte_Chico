@@ -19,13 +19,8 @@ namespace apCaminhosEmMarte
         public FrmCaminhos()
         {
             InitializeComponent();
-
-            
-
-
-            SalvarPontoNaImagem(1200, 1000);
             pbMapa.Image = Image.FromFile(arquivo);
-            Console.WriteLine(pbMapa.Image);
+
         }
 
 
@@ -39,6 +34,8 @@ namespace apCaminhosEmMarte
         ITabelaDeHash<Cidade> tabela;
         private PointF currentPosition;
         private Point ponto = new Point(-1, -1);
+
+
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
@@ -135,9 +132,13 @@ namespace apCaminhosEmMarte
 
                     InserirCidadeNoArquivo(novaCidade);
 
+                    float cordX = (float)x;
+                    float cordY = (float)y;
                     lsbCidades.Items.Add(novaCidade);
                     pbMapa.Invalidate(); // Redesenha o ImageBox para exibir o ponto
-                    SalvarPontoNaImagem(100, 100);
+                    SalvarPontoNaImagem(cordX, cordY, nomeCidade);
+
+
 
 
                 }
@@ -246,11 +247,8 @@ namespace apCaminhosEmMarte
         }
 
 
-        private void pbMapa_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-        private void SalvarPontoNaImagem(int x, int y)
+        private void SalvarPontoNaImagem(float x, float y, string a)
         {
             try
             {
@@ -267,17 +265,27 @@ namespace apCaminhosEmMarte
                 // Carrega a imagem original
                 using (Bitmap imagem = new Bitmap(caminhoOriginal))
                 {
+                    float cordX = imagem.Width * x;
+                    float cordY = imagem.Height * y;
                     // Clona a imagem original para fazer edições
                     using (Bitmap imagemEditada = new Bitmap(imagem))
                     {
                         // Desenha o ponto na imagem editada
                         using (Graphics g = Graphics.FromImage(imagemEditada))
                         {
-                            using (SolidBrush brush = new SolidBrush(Color.Red))
+                            using (SolidBrush brush = new SolidBrush(Color.Black))
                             {
-                                g.FillEllipse(brush, x - 1, y - 1, 200, 200); // O ponto será desenhado com raio 1
+                                using (Font font = new Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))))
+                                {
+                                    g.FillEllipse(brush, cordX, cordY, 40, 40);
+                                    g.DrawString(a, font, brush, cordX + 10, cordY + 30);
+                                    // O ponto será desenhado com raio 1
+                                }
                             }
                         }
+
+                        // Libera a referência à imagem atual do controle PictureBox
+                        pbMapa.Image.Dispose();
 
                         // Salva a imagem editada em um arquivo temporário
                         imagemEditada.Save(caminhoTemporario, ImageFormat.Jpeg);
@@ -288,7 +296,11 @@ namespace apCaminhosEmMarte
                 File.Delete(caminhoOriginal);
                 File.Move(caminhoTemporario, caminhoOriginal);
 
+                // Carrega a imagem novamente no controle PictureBox
+                pbMapa.Image = Image.FromFile(arquivo);
+
                 MessageBox.Show("Ponto salvo na imagem com sucesso.");
+
             }
             catch (Exception ex)
             {

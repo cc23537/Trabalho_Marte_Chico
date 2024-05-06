@@ -75,34 +75,9 @@ namespace apCaminhosEmMarte
                 }
         }
 
-       /* public String ProcurarDados(Cidade a, StreamReader arquivo)
-        {
-            if (arquivo != null)
-                if (!arquivo.EndOfStream)
-                {
-                    string linhaLida = arquivo.ReadLine();
-
-                    // separamos cada campo a partir da linha lida
-                    NomeCidade = linhaLida.Substring(inicioNome, tamNome);
-                    string strX = linhaLida.Substring(inicioX, tamX);
-                    X = double.Parse(strX);
-                    Y = double.Parse(linhaLida.Substring(inicioY, tamY));
-
-                    if (a.Equals(NomeCidade))
-                    {
-                        return NomeCidade;
-                    }
-                    else
-                        return "Cidade não existe";
-                }
-            return "Nenhum arquivo aberto";
-        }*/
-
         public override string ToString()
         {
             return NomeCidade + " " + X + " " + Y;
         }
-
-
     }
 }

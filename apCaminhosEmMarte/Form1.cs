@@ -22,7 +22,6 @@ namespace apCaminhosEmMarte
             pbMapa.Image = Image.FromFile(arquivo);
 
         }
-
         string pasta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
         static string p1 = Directory.GetCurrentDirectory();
         static string p2 = Directory.GetParent(p1).FullName;
@@ -30,8 +29,6 @@ namespace apCaminhosEmMarte
         string arquivo = Path.Combine(p3, "Mapa Marte sem rotas.jpg");
 
         ITabelaDeHash<Cidade> tabela;
-        private PointF currentPosition;
-        private Point ponto = new Point(-1, -1);
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
@@ -84,7 +81,7 @@ namespace apCaminhosEmMarte
                     umaCidade.LerRegistro(arquivo);
                     tabela.Inserir(umaCidade);
                 }
-                lsbCidades.Items.Clear();  // limpa o listBox
+                lsbCidades.Items.Clear();
                 var asCidades = tabela.Conteudo();
                 foreach (Cidade cid in asCidades)
                     lsbCidades.Items.Add(cid);
@@ -127,7 +124,7 @@ namespace apCaminhosEmMarte
                     float cordX = (float)x;
                     float cordY = (float)y;
                     lsbCidades.Items.Add(novaCidade);
-                    pbMapa.Invalidate(); // Redesenha o ImageBox para exibir o ponto
+                    pbMapa.Invalidate();
                     SalvarPontoNaImagem(cordX, cordY, nomeCidade);
                 }
                 else
@@ -176,12 +173,6 @@ namespace apCaminhosEmMarte
                 {
                     Cidade umaCidade = new Cidade();
                     umaCidade.LerRegistro(arquivo);
-                    Console.WriteLine(cid);
-                    Console.WriteLine(umaCidade);
-                    Console.WriteLine(umaCidade.X == cid.X);
-                    Console.WriteLine(umaCidade.Y == cid.Y);
-                    Console.WriteLine(umaCidade.NomeCidade == cid.NomeCidade);
-                    Console.WriteLine(umaCidade.Equals(cid));
                     if (cid.X == umaCidade.X && cid.Y == umaCidade.Y && cid.NomeCidade == umaCidade.NomeCidade)
                     {
                         lsbCidades.Items.Add(cid);
@@ -190,14 +181,12 @@ namespace apCaminhosEmMarte
                 }
             }
         }
-
         private void btnListar_Click(object sender, EventArgs e)
         {
             lsbCidades.Items.Clear();
             var asCidades = tabela.Conteudo();
             foreach (Cidade cid in asCidades)
                 lsbCidades.Items.Add(cid);
-
         }
         private void InserirCidadeNoArquivo(Cidade cidade)
         {
@@ -210,86 +199,46 @@ namespace apCaminhosEmMarte
                 }
             }
         }
-
-
-        private float DPI
-        {
-            get
-            {
-                using (var g = CreateGraphics())
-                    return g.DpiX;
-            }
-        }
-
-        private PointF PointToCartesian(Point point)
-        {
-            return new PointF(point.X, point.Y);
-        }
-
-        private float Pixel(float pixel)
-        {
-            return pixel * 25.4f / DPI;
-        }
-
-
-
         private void SalvarPontoNaImagem(float x, float y, string a)
         {
             try
             {
                 string caminhoOriginal = arquivo;
                 string caminhoTemporario = "imagem_temporaria.jpg";
-
-                // Verifica se o arquivo original existe
                 if (!File.Exists(caminhoOriginal))
                 {
-                    MessageBox.Show("Arquivo original não encontrado.");
+                    MessageBox.Show("Arquivo não encontrado.");
                     return;
                 }
-
-                // Carrega a imagem original
                 using (Bitmap imagem = new Bitmap(caminhoOriginal))
                 {
                     float cordX = imagem.Width * x;
                     float cordY = imagem.Height * y;
-                    // Clona a imagem original para fazer edições
                     using (Bitmap imagemEditada = new Bitmap(imagem))
                     {
-                        // Desenha o ponto na imagem editada
                         using (Graphics g = Graphics.FromImage(imagemEditada))
                         {
                             using (SolidBrush brush = new SolidBrush(Color.Black))
                             {
                                 using (Font font = new Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))))
                                 {
-                                    g.FillEllipse(brush, cordX, cordY, 40, 40);
-                                    g.DrawString(a, font, brush, cordX + 10, cordY + 30);
-                                    // O ponto será desenhado com raio 1
+                                    g.FillEllipse(brush, cordX, cordY, 40, 40); // desenha o ponto
+                                    g.DrawString(a, font, brush, cordX + 10, cordY + 30); // escreve a string
                                 }
                             }
                         }
-
-                        // Libera a referência à imagem atual do controle PictureBox
                         pbMapa.Image.Dispose();
-
-                        // Salva a imagem editada em um arquivo temporário
                         imagemEditada.Save(caminhoTemporario, ImageFormat.Jpeg);
                     }
                 }
-
-                // Substitui o arquivo original pelo arquivo temporário
                 File.Delete(caminhoOriginal);
                 File.Move(caminhoTemporario, caminhoOriginal);
 
-                // Carrega a imagem novamente no controle PictureBox
-                pbMapa.Image = Image.FromFile(arquivo);
-
-                MessageBox.Show("Ponto salvo na imagem com sucesso.");
-
+                pbMapa.Image = Image.FromFile(arquivo); //atualiza a imagem antiga para a nova imagem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao salvar o ponto na imagem: " + ex.Message);
+                MessageBox.Show("Erro ao salvar: " + ex.Message);
             }
         }
     }

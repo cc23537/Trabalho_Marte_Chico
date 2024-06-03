@@ -241,5 +241,60 @@ namespace apCaminhosEmMarte
                 MessageBox.Show("Erro ao salvar: " + ex.Message);
             }
         }
+
+        /// <summary>
+        /// /////////
+        /// </summary>
+
+        Cidade[] asCidades;
+        int quantasCidades;
+        private void tpCaminhos_Enter(object sender, EventArgs e)
+        {
+            asCidades = new Cidade[25];
+            quantasCidades = 0;
+            // abrir o arquivo de cidades
+            // enquanto o arquivo de cidades não acabar
+            //    instancie um objeto da classe cidade
+            //    faça esse objeto ler um registro de cidade
+            //    adicione esse registro de cidade após a última
+            //    posição usada do vetor de cidades
+            //    incremente quantasCidades
+
+            // fechar o arquivo de cidades
+            // ordenar o vetor de cidades pelo atributo nome
+
+            OrdenarCidades();
+            // copiar os nomes de cada cidade nos cbxOrigem e cbxDestino
+        }
+
+        private void OrdenarCidades()
+        {
+            //asCidades[0] = new Cidade("Campinas", 0, 0);
+            //asCidades[1] = new Cidade("Americana", 0, 0); 
+            //asCidades[2] = new Cidade("Sumaré", 0, 0);
+            //asCidades[3] = new Cidade("Estiva Gerbi", 0, 0);
+            //asCidades[4] = new Cidade("Rafard", 0, 0); 
+            //asCidades[5] = new Cidade("Rifaina", 0, 0);
+            //asCidades[6] = new Cidade("Hortolândia", 0, 0);
+            //quantasCidades = 7;
+
+            // Ordenação por seleção direta ou
+            // Selection Sort
+            for (int lento = 0; lento < quantasCidades; lento++)
+            {
+                int indiceMenorCidade = lento;
+                for (int rapido = lento + 1; rapido < quantasCidades; rapido++)
+                    if (asCidades[rapido].NomeCidade.CompareTo(
+                          asCidades[indiceMenorCidade].NomeCidade) < 0)
+                        indiceMenorCidade = rapido;
+
+                if (indiceMenorCidade != lento)
+                {
+                    Cidade auxiliar = asCidades[indiceMenorCidade];
+                    asCidades[indiceMenorCidade] = asCidades[lento];
+                    asCidades[lento] = auxiliar;
+                }
+            }
+        }
     }
 }

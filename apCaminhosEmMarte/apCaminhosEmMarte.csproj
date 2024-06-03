@@ -54,11 +54,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GrafoBacktracking.cs" />
     <Compile Include="HashDuplo.cs" />
     <Compile Include="HashLinear.cs" />
     <Compile Include="HashQuadratico.cs" />
     <Compile Include="IRegistro.cs" />
+    <Compile Include="IStack.cs" />
     <Compile Include="ITabelaDeHash.cs" />
+    <Compile Include="Movimento.cs" />
+    <Compile Include="PilhaVetor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

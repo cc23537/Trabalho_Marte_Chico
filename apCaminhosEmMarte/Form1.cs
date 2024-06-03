@@ -248,20 +248,16 @@ namespace apCaminhosEmMarte
 
         Cidade[] asCidades;
         int quantasCidades;
+        GrafoBacktracking oGrafo;
         private void tpCaminhos_Enter(object sender, EventArgs e)
         {
             asCidades = new Cidade[25];
             quantasCidades = 0;
-            // abrir o arquivo de cidades
-            // enquanto o arquivo de cidades não acabar
-            //    instancie um objeto da classe cidade
-            //    faça esse objeto ler um registro de cidade
-            //    adicione esse registro de cidade após a última
-            //    posição usada do vetor de cidades
-            //    incremente quantasCidades
-
-            // fechar o arquivo de cidades
-            // ordenar o vetor de cidades pelo atributo nome
+            if (dlgAbrir.ShowDialog() == DialogResult.OK)
+            {
+                oGrafo = new GrafoBacktracking(dlgAbrir.FileName);
+                oGrafo.Exibir(dgvCaminhos);
+            }
 
             OrdenarCidades();
             // copiar os nomes de cada cidade nos cbxOrigem e cbxDestino
@@ -294,6 +290,19 @@ namespace apCaminhosEmMarte
                     asCidades[indiceMenorCidade] = asCidades[lento];
                     asCidades[lento] = auxiliar;
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                oGrafo = new GrafoBacktracking(openFileDialog1.FileName);
+                Console.WriteLine(oGrafo);
+                var arquivo = new StreamReader(openFileDialog1.FileName);
+
+                
+                //oGrafo.Exibir(dgvCaminhos);
             }
         }
     }

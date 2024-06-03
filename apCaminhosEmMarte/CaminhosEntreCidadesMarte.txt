@@ -1,0 +1,29 @@
+Acheron        Echus Overlook  2300  19  100
+Echus Overlook Cairo           1900  15   90
+Echus Overlook Sheffield       1700  13   80
+Sheffield      Tharsis          400   5  100
+Sheffield      Cairo           1100  10   70
+Sheffield      Nicosia          300   2   30
+Cairo          Senzeni Na      2000  13   80
+Cairo          Underhill       4000  20  120
+Senzeni Na     Gondor          5500  30  200
+Nicosia        Arrakeen        2200  14   75
+Arrakeen       Gondor          3500  17  100
+Bradbury       Underhill       3000  18  110
+Underhill      Rowan           4140  21  130
+Underhill      Dumont          4050  20  110
+Bradbury       Odessa          4800  27  160
+Rowan          Odessa          1100   9   60
+Rowan          Lakefront       2100  17   95
+Odessa         Bakhuysen       1400  11   65
+Odessa         Esperança       4030  21  100
+Odessa         Lakefront       1010   7   50
+Odessa         Temperança      2350  14   90
+Odessa         Perseverança    1500  12   75
+Dumont         Burroughs       3800  18   95
+Burroughs      Arena           1000   8   60
+Burroughs      Lowell          3980  20  120
+Temperança     Gondor          3900  20  110
+Gondor         Moria           1200  10   60
+Gondor         Lowell          2000  16   80
+ 

@@ -18,11 +18,31 @@ namespace apCaminhosEmMarte
 
         public GrafoBacktracking(string nomeArquivo)
         {
+            
             var arquivo = new StreamReader(nomeArquivo);
-            tipoGrafo = arquivo.ReadLine()[0]; // acessa primeiro caracter com tipo do grafo
-            qtasCidades = int.Parse(arquivo.ReadLine());
-            matriz = new int[qtasCidades, qtasCidades];
+            int i = 0;
+            string[] aaaa;
 
+            tipoGrafo = 'd'; // acessa primeiro caracter com tipo do grafo
+            qtasCidades = int.Parse(arquivo.ReadLine());
+            
+
+            /*while (!arquivo.EndOfStream)
+            {
+                aaaa = new string[i];
+                string linhalida = arquivo.ReadLine();
+                aaaa.Append(linhalida);
+                i++;
+                Console.WriteLine(aaaa.Length);
+                Console.WriteLine(linhalida);
+            }
+            Console.WriteLine(i);
+           
+          
+            //tipoGrafo = arquivo.ReadLine()[0]; // acessa primeiro caracter com tipo do grafo
+            qtasCidades = i;
+            //Console.WriteLine(int.Parse(arquivo.ReadLine()));*/
+            matriz = new int[qtasCidades, qtasCidades];
             for (int linha = 0; linha < qtasCidades; linha++)
             {
                 string arestas = arquivo.ReadLine();

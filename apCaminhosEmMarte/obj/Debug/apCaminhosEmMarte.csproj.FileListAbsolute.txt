@@ -38,3 +38,13 @@ C:\Marte-c#\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.c
 C:\Marte-c#\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.csproj.CoreCompileInputs.cache
 C:\Marte-c#\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.exe
 C:\Marte-c#\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.pdb
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\bin\Debug\apCaminhosEmMarte.exe.config
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\bin\Debug\apCaminhosEmMarte.exe
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\bin\Debug\apCaminhosEmMarte.pdb
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.csproj.AssemblyReference.cache
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.FrmCaminhos.resources
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.Properties.Resources.resources
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.csproj.GenerateResource.cache
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.csproj.CoreCompileInputs.cache
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.exe
+C:\Users\u23537\Documents\GitHub\Trabalho_Marte_Chico\apCaminhosEmMarte\obj\Debug\apCaminhosEmMarte.pdb
